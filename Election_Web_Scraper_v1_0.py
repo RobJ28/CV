@@ -130,7 +130,8 @@ def main():
         for tr in table[index_table].find_all('tr'):
             party = []
             for td in tr.find_all('td'):
-                party.append(unidecode(td.text.strip()))
+                if td.text != '-':
+                    party.append(unidecode(td.text.strip()))
             if party != []:
                 political_party.append(party)
         return political_party
